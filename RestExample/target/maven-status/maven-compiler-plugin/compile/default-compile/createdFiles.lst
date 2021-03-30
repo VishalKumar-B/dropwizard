@@ -1,0 +1,5 @@
+com\motivity\RestExample\resources\EmployeeService.class
+com\motivity\RestExample\core\Employee.class
+com\motivity\RestExample\resources\EmployeeResource.class
+com\motivity\RestExample\RestExampleApplication.class
+com\motivity\RestExample\RestExampleConfiguration.class

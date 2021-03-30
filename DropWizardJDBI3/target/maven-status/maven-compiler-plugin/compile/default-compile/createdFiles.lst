@@ -1,0 +1,6 @@
+com\motivity\DropWizardJDBI3\DropWizardJDBI3Application.class
+com\motivity\DropWizardJDBI3\DropWizardJDBI3Configuration.class
+com\motivity\DropWizardJDBI3\core\Employee.class
+com\motivity\DropWizardJDBI3\resources\EmployeeResource.class
+com\motivity\DropWizardJDBI3\db\EmployeeDAO.class
+com\motivity\DropWizardJDBI3\core\EmployeeMapper.class
