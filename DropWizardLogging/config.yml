@@ -1,0 +1,20 @@
+logging:
+  level: INFO
+  loggers:
+    com.motivity:
+      level: DEBUG
+      additive: false
+      #https://stackoverflow.com/questions/24180772/logback-logger-logging-twice
+      appenders:
+        - type: file
+          immediateFlush: true
+          appender.File.Append: false
+          currentLogFilename: D:\dropwizard\DropWizardLogging\dwl.log
+          logFormat: "%-5p [%d{yyyy-MM-dd HH:mm:ss}] %c: %m%n%rEx"
+          archive: true
+          archivedLogFilenamePattern: D:\dropwizard\DropWizardLogging\dwl-%d.log
+          archivedFileCount: 5
+   
+        - type: console
+          logFormat: "%-5p [%d{yyyy-MM-dd HH:mm:ss}] %c: %m%n%rEx"
+
