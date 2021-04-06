@@ -1,5 +1,8 @@
 D:\dropwizard\DropWizardHibernate\src\main\java\com\motivity\DropWizardHibernate\core\Employee.java
 D:\dropwizard\DropWizardHibernate\src\main\java\com\motivity\DropWizardHibernate\DropWizardHibernateApplication.java
 D:\dropwizard\DropWizardHibernate\src\main\java\com\motivity\DropWizardHibernate\DropWizardHibernateConfiguration.java
+D:\dropwizard\DropWizardHibernate\src\main\java\com\motivity\DropWizardHibernate\auth\ManagerAuthentication.java
+D:\dropwizard\DropWizardHibernate\src\main\java\com\motivity\DropWizardHibernate\core\Manager.java
 D:\dropwizard\DropWizardHibernate\src\main\java\com\motivity\DropWizardHibernate\db\EmployeeDAO.java
+D:\dropwizard\DropWizardHibernate\src\main\java\com\motivity\DropWizardHibernate\health\DatabaseHealthCheck.java
 D:\dropwizard\DropWizardHibernate\src\main\java\com\motivity\DropWizardHibernate\resources\EmployeeResource.java

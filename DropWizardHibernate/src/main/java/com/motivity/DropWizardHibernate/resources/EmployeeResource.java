@@ -11,12 +11,14 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import com.motivity.DropWizardHibernate.core.Employee;
+import com.motivity.DropWizardHibernate.core.Manager;
 import com.motivity.DropWizardHibernate.db.EmployeeDAO;
 
+import io.dropwizard.auth.Auth;
 import io.dropwizard.hibernate.UnitOfWork;
-
 
 @Path("/")
 @Produces({ MediaType.APPLICATION_JSON })
@@ -30,7 +32,6 @@ public class EmployeeResource {
 	}
 
 	@GET
-	@UnitOfWork
 	public String welcome() {
 		return "welcome to employees page";
 	}
@@ -38,22 +39,23 @@ public class EmployeeResource {
 	@GET
 	@UnitOfWork
 	@Path("/employees")
-	public List<Employee> getEmployees() {
+	public List<Employee> getEmployees(@Auth Manager manager) {
 		return employeeDAO.getAllEmployees();
 	}
 
 	@GET
 	@UnitOfWork
 	@Path("/employee/{id}")
-	public Employee getEmployee(@PathParam(value = "id") String id) {
+	public Employee getEmployee(@PathParam(value = "id") String id, @Auth Manager manager) {
 		return employeeDAO.getEmployee(id);
 	}
 
 	@POST
 	@UnitOfWork
 	@Path("/add")
-	public void addEmployee(Employee employee) {
+	public Response addEmployee( Employee employee) {
 		employeeDAO.addEmployee(employee);
+		return Response.ok("success").build();
 	}
 
 	@PUT
@@ -66,7 +68,7 @@ public class EmployeeResource {
 	@DELETE
 	@UnitOfWork
 	@Path("/delete/{id}")
-	public void deleteEmployee(@PathParam(value = "id") String id) {
+	public void deleteEmployee(@PathParam(value = "id") String id, @Auth Manager manager) {
 		employeeDAO.deleteEmployee(employeeDAO.getEmployee(id));
 	}
 }

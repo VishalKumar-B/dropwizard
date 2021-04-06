@@ -1,6 +1,9 @@
 com\motivity\DropWizardHibernate\DropWizardHibernateConfiguration.class
+com\motivity\DropWizardHibernate\auth\ManagerAuthentication.class
 com\motivity\DropWizardHibernate\db\EmployeeDAO.class
+com\motivity\DropWizardHibernate\health\DatabaseHealthCheck.class
 com\motivity\DropWizardHibernate\DropWizardHibernateApplication$1.class
 com\motivity\DropWizardHibernate\DropWizardHibernateApplication.class
+com\motivity\DropWizardHibernate\core\Manager.class
 com\motivity\DropWizardHibernate\core\Employee.class
 com\motivity\DropWizardHibernate\resources\EmployeeResource.class
