@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
 @Table(name = "employee")
 public class Employee {
@@ -30,26 +32,32 @@ public class Employee {
 		this.mobileNumber = mobileNumber;
 	}
 
+	@JsonProperty
 	public String getId() {
 		return id;
 	}
 
+	@JsonProperty
 	public void setId(String id) {
 		this.id = id;
 	}
 
+	@JsonProperty
 	public String getName() {
 		return name;
 	}
 
+	@JsonProperty
 	public void setName(String name) {
 		this.name = name;
 	}
 
+	@JsonProperty
 	public String getMobileNumber() {
 		return mobileNumber;
 	}
 
+	@JsonProperty
 	public void setMobileNumber(String mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}

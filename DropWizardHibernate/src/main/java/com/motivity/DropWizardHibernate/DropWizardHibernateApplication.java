@@ -13,6 +13,7 @@ import io.dropwizard.db.DataSourceFactory;
 import io.dropwizard.hibernate.HibernateBundle;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
+import io.dropwizard.views.ViewBundle;
 
 public class DropWizardHibernateApplication extends Application<DropWizardHibernateConfiguration> {
 
@@ -37,6 +38,7 @@ public class DropWizardHibernateApplication extends Application<DropWizardHibern
 	@Override
 	public void initialize(final Bootstrap<DropWizardHibernateConfiguration> bootstrap) {
 		bootstrap.addBundle(hibernate);
+		bootstrap.addBundle(new ViewBundle());
 	}
 
 	@Override

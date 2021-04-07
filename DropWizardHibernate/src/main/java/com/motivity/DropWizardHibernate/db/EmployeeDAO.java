@@ -23,8 +23,9 @@ public class EmployeeDAO extends AbstractDAO<Employee> {
 		return currentSession().get(Employee.class, id);
 	}
 
-	public void addEmployee(Employee employee) {
-		currentSession().save(employee);
+	public Employee addEmployee(Employee employee) {
+		Object o = currentSession().save(employee);
+		return (Employee) o;
 	}
 
 	public void updateEmployee(Employee employee, String id) {

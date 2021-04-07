@@ -1,6 +1,10 @@
 package com.motivity.DropWizardHibernate.resources;
 
+import java.io.StringWriter;
+import java.io.Writer;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -13,10 +17,12 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import com.motivity.DropWizardHibernate.TemplateConfigurationContext;
 import com.motivity.DropWizardHibernate.core.Employee;
 import com.motivity.DropWizardHibernate.core.Manager;
 import com.motivity.DropWizardHibernate.db.EmployeeDAO;
 
+import freemarker.template.Template;
 import io.dropwizard.auth.Auth;
 import io.dropwizard.hibernate.UnitOfWork;
 
@@ -53,7 +59,7 @@ public class EmployeeResource {
 	@POST
 	@UnitOfWork
 	@Path("/add")
-	public Response addEmployee( Employee employee) {
+	public Response addEmployee(Employee employee) {
 		employeeDAO.addEmployee(employee);
 		return Response.ok("success").build();
 	}
@@ -70,5 +76,22 @@ public class EmployeeResource {
 	@Path("/delete/{id}")
 	public void deleteEmployee(@PathParam(value = "id") String id, @Auth Manager manager) {
 		employeeDAO.deleteEmployee(employeeDAO.getEmployee(id));
+	}
+
+	@GET
+	@Produces({ MediaType.TEXT_HTML })
+	@Path("/home")
+	public Response getHome() {
+		try {
+			Template temp = TemplateConfigurationContext.getConfiguration().getTemplate("home.ftl");
+			Map root = new HashMap();
+			root.put("user", "vishal");
+			Writer writer = new StringWriter();
+			temp.process(root, writer);
+			return Response.status(Response.Status.ACCEPTED).entity((writer.toString())).build();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(("Oops! Try again later")).build();
 	}
 }
